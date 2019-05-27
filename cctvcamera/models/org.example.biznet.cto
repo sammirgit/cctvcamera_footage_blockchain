@@ -1,0 +1,27 @@
+/**
+ * CCTV Camera Footage Monitoring
+ */
+
+namespace org.example.biznet
+
+participant SampleParticipant identified by cameraId {
+  o String cameraId
+  o String Name
+}
+
+asset SampleAsset identified by Hash_Code {
+  o String Hash_Code
+  --> SampleParticipant owner
+  o String Upload_Time
+}
+
+transaction SampleTransaction {
+  --> SampleAsset asset
+  o String newValue
+}
+
+event SampleEvent {
+  --> SampleAsset asset
+  o String oldValue
+  o String newValue
+}
